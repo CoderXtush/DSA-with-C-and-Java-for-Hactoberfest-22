@@ -1,0 +1,28 @@
+ //check whether the elements follow this order nums[i]<nums[j]<nums[k] where i<j<k . return true if found else return false.
+ 
+ #include<bits/stdc++.h>
+ using namespace std;
+ int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+      cin>>arr[i]
+      nums.push_back(arr[i]);
+    }
+    bool ans=increasingTriplet(nums);
+    cout<<ans;
+ }
+ bool increasingTriplet(vector<int>& nums) {
+        int left=INT_MAX;
+        int mid=INT_MAX;
+        if(nums.size()<3)return false;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]>mid)return true;
+            else if(nums[i]>left && nums[i]<mid)mid=nums[i];
+            else if(nums[i]<left)left=nums[i];
+        }
+      return false;
+ }
+
+//time complexity: O(N) where n is the size of the array or the vector . space complexity:O(n) space occupied by the array or the vector.
