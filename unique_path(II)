@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int uniquePathsWithObstacles(vector<vector<int>> &obstacleGrid)
+{
+    int m = obstacleGrid.size();
+    int n = obstacleGrid[0].size();
+    vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
+    dp[0][1] = 1;
+    for (int i = 1; i <= m; ++i)
+        for (int j = 1; j <= n; ++j)
+            if (!obstacleGrid[i - 1][j - 1])
+                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+    return dp[m][n];
+}
+
+int main()
+{
+    int row;
+    int col;
+    cin >> row >> col;
+    vector<vector<int>> grid(row, vector<int>(col));
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            cin >> grid[i][j];
+        }
+    }
+
+    int ans = uniquePathsWithObstacles(grid);
+    cout <<"The number of Unique paths are- "<< ans << endl;
+
+    return 0;
+}
