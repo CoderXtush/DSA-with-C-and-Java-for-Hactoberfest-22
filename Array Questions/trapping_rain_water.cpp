@@ -1,4 +1,4 @@
-// C++ implementation of the approach
+// C++ implementation of the approach of the trapping rain water
 
 #include <bits/stdc++.h>
 using namespace std;
